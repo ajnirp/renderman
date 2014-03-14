@@ -76,6 +76,11 @@ Second part (rendering using point based techniques).
 
 4. For texturing, we wrote a shader for textured surfaces called `texturesurf`, which simply adds a call to the `texture()` function in `pointbasedcolorbleeding.sl`.
 
+Sample output
+-------------
+
+![This one's my favorite](http://imgur.com/mWNA3Es)
+
 Credits
 -------
 
