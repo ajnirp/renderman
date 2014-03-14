@@ -1,0 +1,244 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>README</title></head><body><h1 id="rendering-with-photorealistic-renderman">Rendering with PhotoRealistic Renderman</h1>
+<p>Second assignment for our advanced graphics course.</p>
+<h2 id="team-members">Team members</h2>
+<ul>
+<li>Mayank Dehgal</li>
+<li>Rohan Prinja</li>
+</ul>
+<h2 id="html-report">HTML Report</h2>
+<p>HTML Report for this project can be found <a href="https://wenderen.github.io/renderman">here</a>.</p>
+<h2 id="directory-structure">Directory structure</h2>
+<p>This section lays out the directory structure for the project.</p>
+<table>
+<thead>
+<tr>
+<th>Subproblem</th>
+<th>Directories</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recursive Ray Tracer</td>
+<td><code>rrt/</code></td>
+</tr>
+<tr>
+<td>Adding color bleeding</td>
+<td><code>cb1/</code>, <code>cb2/</code></td>
+</tr>
+<tr>
+<td>Adding caustics</td>
+<td><code>cst1/</code>, <code>cst2/</code></td>
+</tr>
+<tr>
+<td>Adding area lights, soft shadows</td>
+<td><code>alss1/</code>, <code>alss2/</code></td>
+</tr>
+<tr>
+<td>Adding textures</td>
+<td><code>tex1/</code>, <code>tex2/</code></td>
+</tr>
+</tbody>
+</table>
+<p>The directories ending in '1' are the ones corresponding to raytracing methods.
+The directories ending in '2' are the ones corresponding to point-based methods.</p>
+<p>The best outputs for each part were collected and put in the <code>renders/</code> directory</p>
+<h2 id="running-the-code">Running the code</h2>
+<p>These instructions for running the code apply to every directory.</p>
+<p>Each directory contains, at the very least, some RIB files, some shader language files and a Makefile. Run the code with the command</p>
+<pre><code>make
+</code></pre>
+<p>The result will be a TIFF file named</p>
+<pre><code>rrt.tif
+</code></pre>
+<p>which can be viewed like any other image.</p>
+<p>To clean up the files generated in the wake of compiling and running the code, run</p>
+<pre><code>make clean
+</code></pre>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><em>I get a "R90011" error</em>: Renderman can't find a framebuffer because the <code>RMANFB</code> global variable has not been set. Assuming you are on a Linux system, do <code>export RMANFB=x11</code> to tell it to use X11 as the framebuffer.</p>
+<h2 id="methods-used">Methods used</h2>
+<p>To write a recursive ray tracer with hard shadows, we added a call to <code>transmission()</code> in the shader for <code>pointlight</code> and wrote a recursive raytracer shader for specular surfaces (<code>specsurf</code>). For diffuse surfaces we 
+simply used the inbuilt <code>matte</code> shader.</p>
+<p>First part (rendering using ray tracing).</p>
+<ol>
+<li>
+<p>To add color bleeding we wrote our own shader for diffuse surfaces (<code>diffsurf</code>) in which we made a call to <code>indirectdiffuse</code>.</p>
+</li>
+<li>
+<p>To add caustics we used photon mapping. First we generate the photon map using the <code>ptc.rib</code> RIB file, then we use that photon map in the <code>rrt.rib</code> main RIB file. We also added a call to the <code>photonmap</code> shader function in the <code>diffsurf</code> shader.</p>
+</li>
+<li>
+<p>To add area lighting we used the <code>plausibleArealight</code> shader taken from the RenderMan examples directory. To add soft shadows we used ambient occlusion. Specifically, we called the <code>occlusion</code> function, which is a standard RenderMan Shader Language function.</p>
+</li>
+<li>
+<p>To add textures, we wrote a shader for textured surfaces called <code>texturesurf</code>. It is more or less the same as <code>diffsurf</code> except that it calls the <code>texture</code> function which again is part of the RSL standard library.</p>
+</li>
+</ol>
+<p>Second part (rendering using point based techniques).</p>
+<ol>
+<li>
+<p>To add color bleeding we generated a point cloud using the file <code>ptc.rib</code> and used that very point cloud in <code>rrt.rib</code>.</p>
+</li>
+<li>
+<p>To add caustics we merged the methods for creating caustics and for having color bleeding through point based methods. So we have three files: one generates the photon map (<code>cpm.rib</code>), one generates the point cloud for point based color bleeding (<code>ptc.rib</code>) and one is the main file (<code>rrt.rib</code>). For this art we added the call to <code>photonmap()</code> in the pointbasedcolorbleeding shader since it is now effectively the shader for diffuse objects.</p>
+</li>
+<li>
+<p>To add area lighting, as above, we used the <code>plausibleArealight</code> shader. For soft shadows, we again used the <code>occlusion</code> method but this time with the "pointbased" parameter set to 1.</p>
+</li>
+<li>
+<p>For texturing, we wrote a shader for textured surfaces called <code>texturesurf</code>, which simply adds a call to the <code>texture()</code> function in <code>pointbasedcolorbleeding.sl</code>.</p>
+</li>
+</ol>
+<h2 id="images">Images</h2>
+<h3 id="simple-raytracing">Simple raytracing</h3>
+<p><img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/simple-raytracing/rrt.png" /></p>
+<p>In each of the following sections, the first image was generated via raytraced methods and the second was generated via point-based methods.</p>
+<h3 id="color-bleeding">Color bleeding</h3>
+<p><img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/color-bleeding/cb1.png" />
+<img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/color-bleeding/cb2.png" /></p>
+<h3 id="color-bleeding-caustics">Color bleeding + caustics</h3>
+<p><img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/caustics/cst1.png" />
+<img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/caustics/cst2.png" /></p>
+<h3 id="color-bleeding-caustics-area-lights-and-soft-shadows">Color bleeding + caustics + area lights and soft shadows</h3>
+<p><img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/area-lights-soft-shadows/alss1.png" />
+<img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/area-lights-soft-shadows/alss2.png" /></p>
+<h3 id="color-bleeding-caustics-area-lights-and-soft-shadows-textures">Color bleeding + caustics + area lights and soft shadows + textures</h3>
+<p><img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/texturing/tex1.png" />
+<img alt="" src="file:///host/Academic/6/advanced-graphics/assignments/renderman/renderman/imgs/texturing/tex2.png" /></p>
+<h2 id="credits">Credits</h2>
+<ol>
+<li>
+<p>A number of shaders were taken from the RenderMan examples.</p>
+</li>
+<li>
+<p>The <a href="http://renderman.pixar.com/resources/current/rps/abstract.html">Renderman docs</a> were invaluable.</p>
+</li>
+<li>
+<p>ViGIL, for letting us run 40-minute render jobs on their servers.</p>
+</li>
+<li>
+<p>Our profs, for giving us access to PRMan, which is really awesome.</p>
+</li>
+</ol></body></html>
