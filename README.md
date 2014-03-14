@@ -6,8 +6,8 @@ Second assignment for our advanced graphics course.
 Team members
 ------------
 
-Rohan Prinja
-Mayank Dehgal
+* Mayank Dehgal
+* Rohan Prinja
 
 Directory structure
 -------------------
