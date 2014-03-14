@@ -75,3 +75,12 @@ Second part (rendering using point based techniques).
 3. To add area lighting, as above, we used the `plausibleArealight` shader. For soft shadows, we again used the `occlusion` method but this time with the "pointbased" parameter set to 1.
 
 4. For texturing, we wrote a shader for textured surfaces called `texturesurf`, which simply adds a call to the `texture()` function in `pointbasedcolorbleeding.sl`.
+
+Credits
+-------
+
+1. A number of shaders were taken from the RenderMan examples.
+
+2. The [Renderman docs](http://renderman.pixar.com/resources/current/rps/abstract.html) were invaluable.
+
+3. ViGIL, for letting us run 40-minute render jobs on their servers.
