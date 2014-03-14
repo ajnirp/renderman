@@ -1,0 +1,10 @@
+*~
+.nfs*
+.fuse_hidden*
+*.tif
+*.tiff
+*.slo
+*.jpg
+*.png
+*.jpeg
+mpcache.tensor.132323/

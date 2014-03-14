@@ -1,0 +1,100 @@
+# make point cloud
+
+Hider "photon" "emit" 1000000
+
+Attribute "photon" "causticmap" "causticrefl.cpm"
+
+#Display "rrt.tif" "tiff" "rgba"
+Projection "perspective" "fov" 45
+
+PixelSamples 5 5
+#ShadingInterpolation "smooth"
+#ShadingRate 1 # Phong shading (shading done once per pixel)
+
+Attribute "visibility" "int diffuse" [1]
+Attribute "visibility" "int specular" [1]
+Attribute "visibility" "int transmission" [1]
+
+#Attribute "trace" "maxdiffusedepth" 5
+#Attribute "trace" "maxspeculardepth" 5
+
+WorldBegin
+    Translate 0 -3 12
+    Rotate 10 0 1 0
+
+    TransformBegin
+        Translate 2 4 1
+        Rotate 180 0 1 0
+        Scale 2 .8 1 # nonsquare rect (1 by .4)
+        LightSource "plausibleArealight" "mylighthandle" "intensity" 200
+                        "color lightcolor" [1 1 1] "float maxSamples" 64
+                        "float sides" 2
+        AttributeBegin
+            # visualizer for arealight
+            #Attribute "visibility" "int specular" [0] "int diffuse" [0] 
+            #                       "int transmission" [0]
+            #Attribute "trace" "int maxdiffusedepth" [1] "int maxspeculardepth" [1]
+            #Color 1 0 0
+            #Surface "constant" 
+            #Patch "bilinear" "P" [-.5 -.5 0  -.5 .5 0  .5 -.5 0  .5 .5 0]
+        AttributeEnd
+    TransformEnd
+
+    LightSource "ambientlight" 1 "intensity" .2 "lightcolor" [1 1 1]
+
+    Color [1 1 1]
+    Attribute "photon" "shadingmodel" "matte"
+    Color [1 1 1]
+    Polygon "P" [-6 0 -6 -6 0 6 6 0 6 6 0 -6] # Ground
+    Polygon "P" [-6 0 6 -6 9 6 6 9 6 6 0 6] # Back wall
+    Polygon "P" [6 0 -6 6 0 6 6 9 6 6 9 -6] # Right wall
+    Color [1 0 0]
+    Polygon "P" [-6 0 -6 -6 9 -6 -6 9 6 -6 0 6] # Left wall
+    Color [1 1 0]
+    Polygon "P" [-6 9 -6 6 9 -6 6 9 6 -6 9 6] # Ceiling
+    
+    #LightSource "pointlight_shadows" 2 "float intensity" 5 "point from" [2 4 0]
+    #LightSource "pointlight_shadows" 3 "float intensity" 3 "point from" [-2 5 0]
+
+    TransformBegin
+        Translate 2 4 0
+        Rotate -90 1 0 0
+        Scale 2 .8 1 # nonsquare rect (1 by .4)
+        LightSource "plausibleArealight" "mylighthandle" "intensity" 200 "color lightcolor" [1 1 1] "float maxSamples" 64 "float sides" 2
+    TransformEnd
+    TransformBegin
+        Translate -2 5 0
+        Rotate -90 1 0 0
+        Scale 2 .8 1 # nonsquare rect (1 by .4)
+        LightSource "plausibleArealight" "mylighthandle" "intensity" 200 "color lightcolor" [1 1 1] "float maxSamples" 64 "float sides" 2
+    TransformEnd
+
+    TransformBegin
+        #Surface "specsurf" "float Ka" 1 "float Kd" 1 "float Kr" 0.5
+        #Attribute "photon" "shadingmodel" "matte"
+        #Color [.82 .91 .69]
+        Color [1 1 1]
+        Translate 1 1 2
+        Sphere 1 -1 1 360
+    TransformEnd
+
+    TransformBegin
+        #Surface "specsurf" "float Ka" 1 "float Kd" 1 "float Kr" 0.5
+        Attribute "photon" "shadingmodel" "glass"
+        Color [.92 .92 .66]
+        Translate -2 1 -1
+        Sphere 1 -1 1 360
+    TransformEnd
+
+    TransformBegin
+        #Surface "texturesurf" "Ka" 5
+        #Color [0.93 0.56 0.1]
+        #Translate 3 0 -1.5
+        #Rotate -90 1 0 0
+        #Cone 2 1 360
+        Attribute "photon" "shadingmodel" "glass"
+        Color [1 1 1]
+        Translate 3 1 -1.5
+        Sphere 1 -1 1 360
+    TransformEnd
+WorldEnd

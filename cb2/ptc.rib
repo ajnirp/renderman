@@ -1,0 +1,72 @@
+Display "ptc.tif" "tiff" "rgba"
+Projection "perspective" "fov" 45
+
+PixelSamples 5 5
+ShadingInterpolation "smooth"
+#ShadingRate 1 # Phong shading (shading done once per pixel)
+
+Attribute "visibility" "int diffuse" [1]
+Attribute "visibility" "int specular" [1]
+Attribute "visibility" "int transmission" [1]
+
+Attribute "cull" "hidden" 0 # don't cull hidden surfaces
+Attribute "cull" "backfacing" 0 # don't cull backfacing surfaces
+Attribute "dice" "rasterorient" 0 # view independent dicing
+
+# display channels for the point cloud
+DisplayChannel "float _area"
+DisplayChannel "color _radiosity"
+DisplayChannel "color Cs"
+
+LightSource "ambientlight" 1 "intensity" 0.2 "lightcolor" [1 1 1]
+Surface "bake_radiosity" "string bakefile" "cb.ptc" "string displaychannels" "_area,_radiosity,Cs" "float Kd" 0.8
+
+WorldBegin
+    Translate 0 -3 12
+    Rotate 10 0 1 0
+
+    Attribute "visibility" "int specular" 1 # make objects visible to reflected rays
+    Attribute "visibility" "int diffuse" 1 # make objects visible to reflected rays
+    Attribute "visibility" "int transmission" 1 # make objects visible to reflected rays
+
+    Color [1 1 1]
+    #Surface "specsurf" "float Ka" 1 "float Kd" 1 "float Kr" 1
+    Color [1 1 0]
+    Polygon "P" [-6 9 -6 6 9 -6 6 9 6 -6 9 6] # Ceiling
+    Color [1 1 1]
+    Polygon "P" [-6 0 6 -6 9 6 6 9 6 6 0 6] # Back wall
+    #Surface "matte"
+    Polygon "P" [-6 0 -6 -6 0 6 6 0 6 6 0 -6] # Ground
+    Color [0 0 1]
+    Polygon "P" [6 0 -6 6 0 6 6 9 6 6 9 -6] # Right wall
+    Color [1 0 0]
+    Polygon "P" [-6 0 -6 -6 9 -6 -6 9 6 -6 0 6] # Left wall
+    
+    #LightSource "pointlight_shadows" 2 "float intensity" 10 "point from" [2 4 0]
+    #LightSource "pointlight_shadows" 3 "float intensity" 6 "point from" [-2 5 0]
+
+    LightSource "cosinelight_rts" 2 "point from" [2 4 0] "float intensity" 10 "float falloff" 2
+    LightSource "cosinelight_rts" 3 "point from" [-2 5 1] "float intensity" 6 "float falloff" 2
+
+    TransformBegin
+        #Surface "specsurf" "float Ka" 1 "float Kd" 1 "float Kr" 0.5
+        Color [0 1 0]
+        Translate 1 1 2
+        Sphere 1 -1 1 360
+    TransformEnd
+
+    TransformBegin
+        #Surface "specsurf" "float Ka" 1 "float Kd" 1 "float Kr" 0.5
+        Color [.92 .92 .66]
+        Translate -2 1 -1
+        Sphere 1 -1 1 360
+    TransformEnd
+
+    TransformBegin
+        #Surface "matte"
+        Color [0.93 0.56 0.1]
+        Translate 3 0 -1.5
+        Rotate -90 1 0 0
+        Cone 2 1 360
+    TransformEnd
+WorldEnd

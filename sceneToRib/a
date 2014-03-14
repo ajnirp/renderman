@@ -1,0 +1,16 @@
+# you can also have comments
+# camera eye is at 0 0 0
+# lookat is 0 0 -1
+# up vector is 0 1 0
+samples 10
+bounces 1
+camera 0 0 0
+light 0 0 -5 100 0.3 0.2 0.5
+#light -1 10 -5 500 0.3 0.2 0.5
+#light 0 10 -10 500 0.3 0.2 0.5
+#light 0 2 -5 500 0.3 0.2 0.5
+cylinder 0 5 0 0.5 0.7 1 1 diffuse 1 0 0 2 0 1 0 0 0 0 1 -10 0 0 0 1
+sphere 5 0 0 0.5 0.7 1 1 diffuse 1 0 0 -2 0 1 0 1.5 0 0 1 -10 0 0 0 1
+cone 5 5 0 0.5 0.3 1 1 diffuse 1 0 0 -2 0 1 0 -1 0 0 1 -10 0 0 0 1
+#sphere 5 0 0 0.5 0.7 1 1 diffuse 1.25 0 0 0 0 1.25 0 0 0 0 1.25 -10 0 0 0 1
+

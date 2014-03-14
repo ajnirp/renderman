@@ -1,0 +1,94 @@
+
+#
+# $Revision: #1 $ $Date: 2013/07/30 $
+#
+#
+# A trivial test harness for the plausibleArealight shader.
+#
+
+Option "statistics" "endofframe" [1]
+Quantize "rgb" 0 0 0 0
+Display "arealight" "framebuffer" "rgba" "int merge" [0]
+Format 640 480 1
+PixelSamples 5 5
+Projection "perspective" "fov" 45
+Translate 0 0 10
+Rotate -20 1 0 0
+
+ShadingRate 1
+WorldBegin
+Attribute "visibility" "int specular" [1] 
+                       "int diffuse" [1] 
+                       "int transmission" [1]
+Attribute "trace" "int maxdiffusedepth" [1] "int maxspeculardepth" [1]
+
+# Red Light
+TransformBegin
+Translate -5 .5 0  
+Rotate 45 0 1 0
+Scale 2 .8 1 # nonsquare rect (1 by .4)
+LightSource "plausibleArealight" "mylighthandle" "intensity" 10
+                "color lightcolor" [1 1 1] "float maxSamples" 64
+                "float sides" 2
+AttributeBegin
+# visualizer for arealight
+Attribute "visibility" "int specular" [0] "int diffuse" [0] 
+                       "int transmission" [0]
+Attribute "trace" "int maxdiffusedepth" [1] "int maxspeculardepth" [1]
+Color 1 0 0
+Surface "constant" 
+Patch "bilinear" "P" [-.5 -.5 0  -.5 .5 0  .5 -.5 0  .5 .5 0]
+AttributeEnd
+TransformEnd
+
+# Green Light
+TransformBegin
+Translate 4 .5 0  
+Rotate -90 0 1 0
+Scale 2 .8 1 # nonsquare rect (1 by .4)
+LightSource "plausibleArealight" "mylighthandle" "intensity" 10
+                "color lightcolor" [1 1 1] "float maxSamples" 64
+                "float sides" 1
+AttributeBegin
+# visualizer for arealight
+Attribute "visibility" "int specular" [0] "int diffuse" [0] 
+                       "int transmission" [0]
+Attribute "trace" "int maxdiffusedepth" [1] "int maxspeculardepth" [1]
+Color 0 1 0
+Surface "constant" 
+Patch "bilinear" "P" [-.5 -.5 0  -.5 .5 0  .5 -.5 0  .5 .5 0]
+AttributeEnd
+TransformEnd
+
+AttributeBegin
+Translate -1.5 .5 -2
+Surface "plausibleDielectric" "float roughness" .08 
+                              "color surfaceColor" [1 0 0]
+                              "float indirectDiffuseMaxVar" [0]
+Sphere 1 -1 1 360
+
+AttributeEnd
+AttributeBegin
+Translate 0 .5 0
+Surface "plausibleDielectric" "float roughness" .03 
+                       "color surfaceColor" [0 1 0]
+                       "float indirectDiffuseMaxVar" [0]
+Sphere 1 -1 1 360
+AttributeEnd
+
+AttributeBegin
+Translate 1.5 .5 2
+Surface "plausibleDielectric" "float roughness" .01
+                       "color surfaceColor" [0 0 1]
+                       "float indirectDiffuseMaxVar" [0]
+Sphere 1 -1 1 360
+AttributeEnd
+
+AttributeBegin
+Scale 10 .1 10
+Translate 0 -.45 0
+Surface "plausibleMatte" 
+Geometry "cube"
+AttributeEnd
+
+WorldEnd
