@@ -20,7 +20,7 @@ diffsurf
   Ci += Cs * 0.75 * local_illumination;
   Ci += 4.5 * indirectdiffuse(P, Nn, 1000); // color bleeding
   Ci += Kc * photonmap("causticrefl.cpm", P, N, "estimator", 400); // caustics
-  float occ = occlusion(P, v, 4000, "maxvariation", 0.002, "falloff", 2, "maxdist", 1, "maxpixeldist", 7); // soft shadows
+  float occ = occlusion(P, v, 2000, "maxvariation", 0.02, "falloff", 2, "maxdist", 15, "maxpixeldist", 12); // soft shadows
   Ci *= Os * 0.4 * (1 - occ);
   Oi = Os;
 }

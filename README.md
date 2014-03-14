@@ -9,6 +9,11 @@ Team members
 * Mayank Dehgal
 * Rohan Prinja
 
+HTML Report
+-----------
+
+HTML Report for this project can be found [here](www.wenderen.github.io/renderman).
+
 Directory structure
 -------------------
 

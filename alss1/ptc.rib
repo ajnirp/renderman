@@ -7,6 +7,8 @@ Attribute "photon" "causticmap" "causticrefl.cpm"
 #Display "rrt.tif" "tiff" "rgba"
 Projection "perspective" "fov" 45
 
+Format 1368 766 1
+
 PixelSamples 5 5
 #ShadingInterpolation "smooth"
 #ShadingRate 1 # Phong shading (shading done once per pixel)

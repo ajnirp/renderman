@@ -1,46 +1,24 @@
-Display "output_sphere" "framebuffer" "rgb"
-#Display "sphere.tif" "tiff" "rgb"
-Projection "perspective" "fov" 45
-Format 800 640 1
-
-PixelSamples 5 5
-ShadingInterpolation "smooth"
-LightSource "ambientlight" 1 "intensity" 0.1 "lightcolor" [1 1 1]
-#LightSource "distantlight" 2 "intensity" 1.0 "from" [10 10 -10] "to" [0 0 0]
-
-Declare "Light1" "string"
-
-# Enable photon mapping mode
-#Hider "photon" "emit" 1000000
-
-#Attribute "cull" "hidden" 0 # don't cull hidden surfaces
-#Attribute "cull" "backfacing" 0 # don't cull backfacing surfaces
-#Attribute "dice" "rasterorient" 0 # view independent dicing
-
-WorldBegin
-
-#AttributeBegin
+AttributeBegin
 	Color [0 0.0196078 0]
 	TransformBegin
-		#Transform [ 1 0 0 2 0 1 0 0 0 0 1 -10 0 0 0 1 ]
+		Transform [ 1 0 0 2 0 1 0 0 0 0 1 -10 0 0 0 1 ]
 		Cylinder 1 -1 1 360
 	TransformEnd
-#AttributeEnd
+AttributeEnd
 
-#AttributeBegin
+AttributeBegin
 	Color [0.0196078 0 0]
 	TransformBegin
-		#Transform [ 1 0 0 -2 0 1 0 1.5 0 0 1 -10 0 0 0 1 ]
+		Transform [ 1 0 0 -2 0 1 0 1.5 0 0 1 -10 0 0 0 1 ]
 		Sphere 1 -1 1 360
 	TransformEnd
-#AttributeEnd
+AttributeEnd
 
-#AttributeBegin
+AttributeBegin
 	Color [0.0196078 0.0196078 0]
 	TransformBegin
-		#Transform [ 1 0 0 -2 0 1 0 -1 0 0 1 -10 0 0 0 1 ]
+		Transform [ 1 0 0 -2 0 1 0 -1 0 0 1 -10 0 0 0 1 ]
 		Cone 1 1 360
 	TransformEnd
-#AttributeEnd
+AttributeEnd
 
-WorldEnd
