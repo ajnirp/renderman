@@ -87,29 +87,29 @@ Images
 
 ### Simple raytracing
 
-![](imgs/simple-raytracing/rrt.png)
+![](./imgs/simple-raytracing/rrt.png)
 
 In each of the following sections, the first image was generated via raytraced methods and the second was generated via point-based methods.
 
 ### Color bleeding
 
-![](imgs/color-bleeding/cb1.png)
-![](imgs/color-bleeding/cb2.png)
+![](./imgs/color-bleeding/cb1.png)
+![](./imgs/color-bleeding/cb2.png)
 
 ### Color bleeding + caustics
 
-![](imgs/caustics/cst1.png)
-![](imgs/caustics/cst2.png)
+![](./imgs/caustics/cst1.png)
+![](./imgs/caustics/cst2.png)
 
 ### Color bleeding + caustics + area lights and soft shadows
 
-![](imgs/area-lights-soft-shadows/alss1.png)
-![](imgs/area-lights-soft-shadows/alss2.png)
+![](./imgs/area-lights-soft-shadows/alss1.png)
+![](./imgs/area-lights-soft-shadows/alss2.png)
 
 ### Color bleeding + caustics + area lights and soft shadows + textures
 
-![](imgs/texturing/tex1.png)
-![](imgs/texturing/tex2.png)
+![](./imgs/texturing/tex1.png)
+![](./imgs/texturing/tex2.png)
 
 
 Credits
