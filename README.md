@@ -79,7 +79,7 @@ Second part (rendering using point based techniques).
 Sample output
 -------------
 
-![This one's my favorite](http://imgur.com/mWNA3Es)
+![This one's my favorite](http://i.imgur.com/mWNA3Es.png)
 
 Credits
 -------
